@@ -6,9 +6,8 @@ This project provides a RESTful API for a task management system. The API suppor
 
 ## Features
 
-- **User Registration and Authentication**: Secure registration with password hashing, JWT-based authentication.
+- **User Registration and Authentication**: Secure registration with password hashing,Role Based JWT-based authentication.
 - **Task Management**: Create, read, update, and delete tasks; assign tasks to users.
 - **Filtering and Searching**: Filter tasks by status, priority, due date; search tasks by title or description.
 - **Dockerization**: Containerized application with Docker.
-- **Database**: Uses PostgreSQL/MySQL and an ORM for database operations.
-- **Bonus Features
+- **Database**: MySQL
