@@ -1,0 +1,43 @@
+1. Open Your Project
+Launch IntelliJ IDEA.
+Open the Project:
+If your project is not already open, select File > Open and navigate to the root directory of your Spring Boot project. This is where your pom.xml (for Maven) or build.gradle (for Gradle) file is located.
+
+2. Check Project SDK
+Set Up the JDK:
+Go to File > Project Structure.
+Under Project Settings > Project, make sure that the Project SDK is set to the correct version of the JDK you have installed (e.g., JDK 22).
+
+3. Build the Project
+Reload Dependencies:
+If your project uses Maven or Gradle, you may need to refresh the dependencies. You can do this by opening the Maven or Gradle tool window (usually on the right side) and clicking the Reload button.
+
+
+4. Run the Application
+Locate the Main Class:
+
+Find the class annotated with @SpringBootApplication. This class contains the main method that starts the Spring Boot application.
+It is typically located in src/main/java and is in the root package or a sub-package.
+Run the Application:
+
+Right-click on the class with the @SpringBootApplication annotation.
+Select Run 'ClassName.main()' from the context menu. IntelliJ IDEA will compile the code and start the Spring Boot application.
+You can also use the Run button (green triangle) in the top right corner if you have a run configuration set up.
+5. Verify the Application
+Check the Console:
+
+Look at the IntelliJ IDEA console to see the Spring Boot startup logs. You should see the Spring Boot banner and logs indicating that the application has started.
+Access the Application:
+
+By default, Spring Boot applications run on http://localhost:8080. Open your web browser and navigate to this URL to check if your application is running as expected.
+
+6. Configure Application Properties (If Needed)
+Edit Properties:
+To change configurations like server port or database settings, edit the application.properties or application.yml file located in src/main/resources.
+
+7. Stop the Application
+Stop the Running Application:
+You can stop the application by clicking the Stop button (red square) in the console window or by selecting Run > Stop from the menu.
+Troubleshooting Tips:
+Dependency Issues: Ensure all dependencies are correctly resolved. You might need to manually update or reload them.
+Port Conflicts: If the application fails to start due to port conflicts, you can change the port in application.properties (e.g., server.port=8081).
