@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "1639287b-2d2e-4e66-820d-5c907937e1de",
+		"name": "Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32728125"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"username\": \"maria.martinez@example.com\",\n        \"password\": \"maria2024\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"username\": \"maria.martinez@example.com\",\r\n        \"password\": \"maria2024\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NTkwOSwiZXhwIjoxNzI0NTg3MzQ5fQ.8UhNzvHXAoHXqbpZmpvJVE_-7kHdJJkVhq8PeAw4tkI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"title\": \"Review Code\",\n    \"description\": \"Conduct code review to ensure code quality and standards.\",\n    \"statusId\": 1,\n    \"priorityId\": 3,\n    \"dueDate\": \"2024-09-12\",\n    \"userId\": 1\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/addTask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"addTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NjI5NiwiZXhwIjoxNzI0NTg3NzM2fQ.wPu31uo-dBA0nLUPWeY5YipPegVYeizBUYAqs6aNrdY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"update Project.\",\r\n  \"description\": \"Finalize and submit the project documentation including all design specifications and user guides.\",\r\n  \"statusId\": 1,\r\n  \"priorityId\": 1,\r\n  \"dueDate\": \"2024-08-30\",\r\n\r\n  \"userId\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/updateTask/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"updateTask",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllTaskWithPagination",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NjI5NiwiZXhwIjoxNzI0NTg3NzM2fQ.wPu31uo-dBA0nLUPWeY5YipPegVYeizBUYAqs6aNrdY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/all-task?page=0&size=10\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"all-task"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NjI5NiwiZXhwIjoxNzI0NTg3NzM2fQ.wPu31uo-dBA0nLUPWeY5YipPegVYeizBUYAqs6aNrdY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/delete-task/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"delete-task",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2hxbi5kb2VAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjQ1ODAzMDYsImV4cCI6MTcyNDU4MTc0Nn0.8GqbLAEaymtwX1mjaOW3qols-TeZLdFWlHEQTciiiwU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"CUpdated Project.\",\r\n  \"description\": \"Finalize and submit the project documentation including all design specifications and user guides.\",\r\n  \"statusId\": 1,\r\n  \"priorityId\": 2,\r\n  \"dueDate\": \"2024-08-31T18:00:00\",\r\n\r\n  \"userId\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/taskById/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"taskById",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NjI5NiwiZXhwIjoxNzI0NTg3NzM2fQ.wPu31uo-dBA0nLUPWeY5YipPegVYeizBUYAqs6aNrdY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2hxbi5kb2VAZXhhbXBsZS5jb20iLCJpYXQiOjE3MjQ1ODI5MTksImV4cCI6MTcyNDU4NDM1OX0.7dTenG65ziMKF4Zcp_IpZPEpN_F77pNl7f2DxoI9JMg"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/filter-task?status=Todo&priority=High&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"filter-task"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Todo"
+						},
+						{
+							"key": "priority",
+							"value": "High"
+						},
+						{
+							"key": "dueDate",
+							"value": "2024-08-31",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpYS5tYXJ0aW5lekBleGFtcGxlLmNvbSIsImlhdCI6MTcyNDU4NjI5NiwiZXhwIjoxNzI0NTg3NzM2fQ.wPu31uo-dBA0nLUPWeY5YipPegVYeizBUYAqs6aNrdY"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/task/search?title=Design&description=Data&size=10&page=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Design"
+						},
+						{
+							"key": "description",
+							"value": "Data"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
